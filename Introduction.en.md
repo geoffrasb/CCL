@@ -15,7 +15,7 @@ For example: `| this is comment |` is the actual code `# this is comment`'s abst
 
 ### Program
 
-	# Grammar
+	# Grammar, not program example
 	Program := [Fact] [Context]
 
 A Program which describe a series of events, containing a set of Facts and a set of Contexts.
@@ -48,11 +48,11 @@ When a program becomes a context, those Facts will also be translated to Context
 
 ### Fact
 
-	# Grammar
+	# Grammar, not program example
 	Fact :=
 		| ConceptEntity
 		| ConceptEntity & ConceptEntity
-		| Fact => Fact
+		| Fact => Fact						# => is right associative
 
 A Fact is a ConceptEntity, or a causality between Facts.
 Facts can only be composed with `and'(`&`) operator, because they're only used to describe things that are really exist,
@@ -65,18 +65,21 @@ no possibility or uncertainty.
 	| A laughs at B | => | B hits A | => | A is laughing harder |
 	| (Context) a context in a classroom |
 
-In this example, we may interpret that A and B are just being frolic, but not maybe A has some strange mental problem.
+In this example, we may interpret that A and B are just being frolic, but not A has some mental problems.
 
 ● Description of operations:
 
-	verify a Fact = verify if the Fact is consistent in the context(the whole program including Facts and Contexts), 
-					which means the Fact doesn't violate any rule in the context.
+	# not program example
+	verify  Fact = in cases that Fact is:
+		| ConceptEntity -> 
+		| ConceptEntityA & B -> verify 
+		|
 
 We'll talk more about `=>` later in Causality section.
 
 - - -
 
-## Context
+### Context
 
     # Grammar
     Context :=
@@ -89,6 +92,7 @@ We'll talk more about `=>` later in Causality section.
         | ""
     ContextComposition :=
         | ...
+
 
 
     CommonSense :=
