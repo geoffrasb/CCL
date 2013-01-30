@@ -1,4 +1,4 @@
-# Introduction to The Common-sense Composing Language
+# Introduction to The Causality Composing Language
 
 ## Background - why designing the language
 ## What does it provide
@@ -24,11 +24,9 @@ Facts would be interpreted as rational or irrational.
 
 - Examples:
 
-    # positive example
     | the fact that an apple released by the branch and hit the ground |
     | the context that things not shored by someone would hit the ground |
 
-    # negative example
     | an orange freed from my hands and fly away |
     | context that things without wings cannot fly |
 
