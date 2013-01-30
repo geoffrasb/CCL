@@ -22,7 +22,7 @@ A Program which describe a series of events, containing a set of Facts and a set
 Facts are events or objects that the program want to describe. And within different Contexts,
 Facts would be interpreted as rational or irrational.
 
-- Examples:
+● Examples:
 
 	# positive example
 	| the fact that an apple released by the branch and hit the ground |
@@ -37,7 +37,7 @@ There're two methods that could be applied on a program: `verify`, `rationalize`
 Of course, conflicting does not necessarily mean erroneous, we'll talk about this below.
 *rationalize will be described later*
 
-- Description of operations:
+● Description of operations:
 
 	verify a program = verify the consistency of the program (context)
 
@@ -58,7 +58,7 @@ A Fact is a ConceptEntity, or a causality between Facts.
 Facts can only be composed with `and'(`&`) operator, because they're only used to describe things that are really exist,
 no possibility or uncertainty.
 
-- Examples:
+● Examples:
 
 	| (Fact) person A's settings |
 	| (Fact) person B's settings |
@@ -67,7 +67,7 @@ no possibility or uncertainty.
 
 In this example, we may interpret that A and B are just being frolic, but not maybe A has some strange mental problem.
 
-- Description of operations:
+● Description of operations:
 
 	verify a Fact = verify if the Fact is consistent in the context(the whole program including Facts and Contexts), 
 					which means the Fact doesn't violate any rule in the context.
