@@ -33,13 +33,16 @@ Facts would be interpreted as rational or irrational.
 	| context that things without wings cannot fly |
 
 There're two methods that could be applied on a program: `verify`, `rationalize`. 
-`verify` is used for checking if there exists facts conflict within declared contexts, or any inconsistent context.
-Of course, conflicting does not necessarily mean erroneous, we'll talk about this below.
+`verify` is used for checking if there exists facts conflict within declared contexts, or if there exists 
+any self-inconsistent context.
+However, conflicting does not necessarily mean erroneous, it still can be interpret as other meanings.
+We'll talk about this in the **Causality** section.
 *rationalize will be described later*
 
 ● Description of operations:
 
-	verify a program = verify the consistency of the program (context)
+	verify a program = verify all declared contexts,
+                       verify all facts
 
 Note that a program A may be included to another program B, then we call that A is a context included by B.
 When a program becomes a context, those Facts will also be translated to Contexts.
@@ -52,7 +55,7 @@ When a program becomes a context, those Facts will also be translated to Context
 	Fact :=
 		| ConceptEntity
 		| ConceptEntity & ConceptEntity
-		| Fact => Fact						# => is right associative
+		| Fact => Fact						# => is left associative?
 
 A Fact is a ConceptEntity, or a causality between Facts.
 Facts can only be composed with `and'(`&`) operator, because they're only used to describe things that are really exist,
@@ -70,12 +73,23 @@ In this example, we may interpret that A and B are just being frolic, but not A 
 ● Description of operations:
 
 	# not program example
-	verify  Fact = in cases that Fact is:
-		| ConceptEntity -> 
-		| ConceptEntityA & B -> verify 
-		|
+	verify a fact = in cases that Fact is:
+		| ConceptEntityX : 
+            verify ConceptEntityX
+		| ConceptEntityA & ConceptEntityB : 
+            verify ConceptEntityA,
+            verify ConceptEntityB
+		| FactA => FactB :
+            verify FactA,
+            verify FactB
 
-We'll talk more about `=>` later in Causality section.
+In the second case of the verification, not introducing conjunction is because the verification process does not
+return a boolean value. Again, it just tell where exists inconsistence.
+
+And in the third case of the verification, it only verify on those Facts. The result of the causality checking
+could obtain from the process of verification on Contexts.
+We'll talk more about `=>` later in **Causality** section.
+
 
 - - -
 

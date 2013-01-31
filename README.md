@@ -1,1 +1,1 @@
-A common-sense composing language.
+A causality composing language.
